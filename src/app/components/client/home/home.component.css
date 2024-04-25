@@ -1,0 +1,131 @@
+/* Trong tệp CSS của bạn */
+
+.red-text {
+    color: red;
+    /* Mã màu đỏ */
+}
+
+#scrollToTopBtn {
+    /* display: none; */
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+/* CSS cho các mục trong carousel */
+/* Hide navigation buttons */
+:host ::ng-deep .p-carousel-prev,
+:host ::ng-deep .p-carousel-next {
+    display: none;
+}
+
+/* Style product item */
+.product-item {
+    text-align: center;
+    padding: 10px;
+    
+    border-radius: 5px;
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+}
+
+.product-detail {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.featured__item {
+    border: 1px solid #dee2e6; /* Màu và độ dày viền có thể điều chỉnh */
+    margin-bottom: 20px; /* Khoảng cách giữa các sản phẩm */
+    padding: 15px; /* Khoảng cách nội dung bên trong sản phẩm */
+}
+
+/* //  danh mục // */
+.carousel-wrapper {
+    /* Styles for the wrapper of the carousel */
+    position: relative;
+    overflow: hidden;
+}
+
+.category-list {
+    /* Styles for the list of categories */
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.category-item {
+    /* Styles for each category item */
+    flex: 0 0 10%; /* Adjust as needed for the number of categories to be displayed */
+    padding: 16px;
+    list-style: none;
+    border: 1px solid #dee2e6;
+}
+
+.category-link {
+    /* Styles for the link wrapping each category item */
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    /* max-width: 100px; */
+}
+
+.category-thumbnail {
+    /* Styles for the thumbnail/image of each category */
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 70px; /* Adjust as needed */
+}
+
+.carousel-arrow {
+    /* Styles for the carousel navigation arrows */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Styles for arrow icons can be added here */
+    cursor: pointer;
+}
+
+.arrow-prev {
+    left: 0;
+}
+
+.arrow-next {
+    right: 0;
+}
+.category-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(10% ), 1fr)); /* Số lượng cột và độ rộng của mỗi cột */
+   
+}
+
+.hot-label {
+    position: absolute; /* Vị trí tuyệt đối để đặt nhãn lên sản phẩm */
+    top: 10px; /* Khoảng cách từ trên xuống */
+    right: 10px; /* Khoảng cách từ trái qua */
+    background-color: #fa0707;
+    color: white; /* Màu chữ */
+    padding: 5px 10px; /* Khoảng cách đệm bên trong */
+    border-radius: 5px; /* Độ cong viền */    
+    font-size: 12px; /* Cỡ chữ */
+    z-index: 1;
+}
+.category-item {
+    transition: transform 0.4s; /* Tạo hiệu ứng chuyển động mềm mại */
+}
+
+.category-item:hover {
+    transform: scale(0.9); /* Phóng to phần tử khi di chuột vào */
+}
+

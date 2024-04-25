@@ -1,0 +1,224 @@
+ <!-- hiển thị thông báo -->
+<p-toast>
+</p-toast>
+
+<!-- lên top trang  -->
+<div id="scrollToTopBtn" (click)="scrollToTop()">
+    <img src="assets/image/top.png">
+
+</div>
+
+<!-- 
+<section>
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-lg-9">
+                <div class="hero__item set-bg right" [ngStyle]="{backgroundImage:'url(assets/image/banner.png'}">
+                    <div class="hero__text">
+                        <span>TAZa SHOP</span>
+                        <h2>Giá rẻ <br />bất ngờ</h2>
+                        <p>Nhận và giao hàng miễn phí</p>
+                        <a href="javascript:void(0)" class="primary-btn">SHOP NOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<!-- Hero Section End -->
+
+<!-- Categories Section Begin -->
+
+
+<!-- slide 1 -->
+<!-- <section class="categories">
+    <div class="container">
+        <div class="row">
+            <p-carousel [value]="category_items" [numScroll]="1" [numVisible]="1" [circular]="true" [showIndicators]="false" [autoplayInterval]="4000">
+                <ng-template let-item pTemplate="item">
+                    <div class="col">
+                        <div class="categories__item set-bg" [ngStyle]="{'background-image': 'url('+ item.src +')'}">
+                            <h5><a href="javascript:void(0)">{{item.title}}</a></h5>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-carousel>
+        </div>
+    </div>
+</section> -->
+<!-- slide 2 -->
+<div class="container"><p-carousel [value]="slides" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="4000" [responsiveOptions]="responsiveOptions" >
+    <ng-template let-slide pTemplate="carousel">
+        <div class="product-item">
+            <img [src]="slide.src" alt="{{ slide.title }}" />
+            <div class="product-detail">{{ slide.title }}</div>
+        </div>
+    </ng-template>
+</p-carousel></div>
+
+
+<!-- Categories Section End -->
+<!-- <div class="container">
+    <div class="home-category-list">
+        <div class="category-carousel">
+            
+            <div class="category-content">
+                <div class="carousel-wrapper">
+                    <ul class="category-list">
+                        <li class="category-item"  *ngFor="let category of listCategoryEnabled" >
+                            <a class="category-link" href="/">
+                                <div class="category-thumbnail" style="background-image: url(&quot;https://down-vn.img.susercontent.com/file/687f3967b7c2fe6a134a2c11894eea4b_tn&quot;)"></div>
+                                <div class="category-text">{{category.name}}</div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="carousel-arrow arrow-prev" (click)="moveCarousel('prev')"></div>
+                    <div class="carousel-arrow arrow-next" (click)="moveCarousel('next')"></div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="container">
+    <div class="home-category-list">
+        <div class="category-carousel">
+            <div class="category-content">
+                <div class="carousel-wrapper">
+                    <ul class="category-list">
+                        <li class="category-item" *ngFor="let category of listCategoryEnabled; let i = index" [style.display]="i < 20 ? 'block' : 'none'">
+                            <a class="category-link" routerLink="/category/{{category.id}}" >
+                                <div class="category-thumbnail" [style.background-image]="'url(' + category.link + ')'"></div>
+                                <div class="category-text">{{ category.name }}</div>
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Lastest Section Begin -->
+<section class="featured spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Sản phẩm mới nhất</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row featured__filter">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-6" *ngFor="let product of listProductNewest">
+                <div class="featured__item">
+                    <!-- <div class="hot-label">-{{product.pricesale}}%</div> -->
+                    <div *ngIf="product.pricesale > 0" class="hot-label">-{{product.pricesale}}%</div>
+
+                    <div class="featured__item__pic set-bg" [ngStyle]="{'background-image': 'url(data:image/jpeg;base64,'+ product.images[0].data+')'}">
+                         <ul class="featured__item__pic__hover">
+                            <li>
+                                <a href="javascript:void(0)" (click)="addToWishList(product)">
+                                    <fa-icon [icon]="heart"></fa-icon>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" routerLink="/product/{{product.id}}">
+                                    <fa-icon [icon]="eye"></fa-icon>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" (click)="addToCart(product)">
+                                    <fa-icon [icon]="bag"></fa-icon>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><b><a href="javascript:void(0)">{{ product.name.length > 25 ? product.name.slice(0, 25) + '...' : product.name }}</a></b></h6>
+                        <div style="display: inline-block;">
+                            <h5 class="red-text" style="display: inline-block; margin-right: 10px;">{{ product.price | currency:'VND'}}</h5> 
+                            <p style="display: inline-block;">Đã bán {{ product.quantitybuy }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Lastest Section End -->
+
+<!-- Banner Begin -->
+<!-- <div class="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="banner__pic">
+                    <img src="assets/image/banner-1.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="banner__pic">
+                    <img src="assets/image/banner-2.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- Banner End -->
+
+<!-- Featured Product Section Begin -->
+<section class="featured spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Sản phẩm giá rẻ</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row featured__filter">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-6"  *ngFor="let product of listProductPrice">
+                
+                <div class="featured__item" >
+                    <div *ngIf="product.pricesale > 0" class="hot-label">-{{product.pricesale}}%</div>
+
+                    <div class="featured__item__pic set-bg" [ngStyle]="{'background-image': 'url(data:image/jpeg;base64,'+ product.images[0].data+')'}">
+                        <ul class="featured__item__pic__hover">
+                            <li>
+                                <a href="javascript:void(0)" (click)="addToWishList(product)">
+                                    <fa-icon [icon]="heart"></fa-icon>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" routerLink="/product/{{product.id}}">
+                                    <fa-icon [icon]="eye"></fa-icon>
+                                    
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" (click)="addToCart(product)">
+                                    <fa-icon [icon]="bag"></fa-icon>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><b><a href="javascript:void(0)">{{ product.name.length > 25 ? product.name.slice(0, 25) + '...' : product.name }}</a></b></h6>
+                        <div style="display: inline-block;">
+                            <h5 class="red-text" style="display: inline-block; margin-right: 10px;">{{ product.price | currency:'VND'}}</h5> 
+                            <p style="display: inline-block;">Đã bán {{ product.quantitybuy }}</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

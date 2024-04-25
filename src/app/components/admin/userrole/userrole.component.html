@@ -1,0 +1,113 @@
+<p-toast></p-toast>
+<p-card class="card">
+    
+
+    <p-table #dt [value]="listBlog" [rows]="5" [paginator]="true" [globalFilterFields]="['username','id']" [tableStyle]="{'min-width': '75rem'}"
+        [rowHover]="true" dataKey="id"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                <h5 class="m-0">Phần Quyền</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Tìm kiếm" />`
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                
+                <th pSortableColumn="id">ID
+                    <p-sortIcon field="id"></p-sortIcon>
+                </th>
+                <th pSortableColumn="username">Tên Tài Khoản
+                    <p-sortIcon field="username"></p-sortIcon>
+                </th>
+                <th>Trạng Thái</th>
+                <th>Quyền</th>
+                <th style="min-width:10rem">Tuỳ Chỉnh</th>
+                
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-blog >
+            <tr>
+                
+                <td>{{blog.id}}</td>
+                <td>{{blog.username}}</td>   
+                <td>
+                    <p-inputSwitch [(ngModel)]="blog.enabled" [disabled]="true"></p-inputSwitch>
+                </td>                  
+                <td>
+                    <ng-container *ngFor="let role of blog.roles">
+                      {{ role.name }}
+                      <br>
+                    </ng-container>
+                  </td>
+                  
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-primary mr-2" (click)="showUpdate(blog)" ></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                <!-- In total there are {{products ? products.length : 0 }} products. -->
+            </div>
+        </ng-template>
+    </p-table>
+
+</p-card>
+
+
+
+<p-dialog [(visible)]="showForm" [style]="{width: '70vw'}" header="Bài Viết" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <!-- username,firstname,lastname,email,country,state,address,phone -->
+         <div class="field">
+            <label for="username">Tên Tài Khoản</label>
+            <input id="username" pInputTextarea [(ngModel)]="blogForm.username" required rows="2" cols="20" readonly/>
+        </div>
+
+        <div class="field" >
+            <label for="name">Quyền</label>
+            <p-multiSelect [options]="listTag" [(ngModel)]="selectedTags" optionLabel="name" optionValue="id"></p-multiSelect>
+        </div>
+        <div class="field">
+            <label for="firstname">Họ</label>
+            <textarea id="firstname" pInputTextarea [(ngModel)]="blogForm.firstname" required rows="2" cols="20"></textarea>
+        </div>
+        <div class="field">
+            <label for="lastname">Tên</label>
+            <textarea id="lastname" pInputTextarea [(ngModel)]="blogForm.lastname" required rows="2" cols="20"></textarea>
+        </div>
+        <div class="field">
+            <label for="email">Email</label>
+            <textarea id="email" pInputTextarea [(ngModel)]="blogForm.email" required rows="2" cols="20"></textarea>
+        </div>
+        <div class="field">
+            <label for="country">Quốc Gia</label>
+            <textarea id="country" pInputTextarea [(ngModel)]="blogForm.country" required rows="2" cols="20"></textarea>
+        </div>
+        <div class="field">
+            <label for="state">Quận/Huyện</label>
+            <textarea id="state" pInputTextarea [(ngModel)]="blogForm.state" required rows="2" cols="20"></textarea>
+        </div>
+        <div class="field">
+            <label for="address">Địa Chỉ Nhận Hàng</label>
+            <textarea id="address" pInputTextarea [(ngModel)]="blogForm.address" required rows="2" cols="20"></textarea>
+        </div>
+        <div class="field">
+            <label for="phone">SĐT</label>
+            <textarea id="phone" pInputTextarea [(ngModel)]="blogForm.phone" required rows="2" cols="20"></textarea>
+        </div>
+        
+
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button type="submit" pButton *ngIf="onUpdate" (click)="updateBlog()" >Cập nhật</button>
+        <button pButton type="button" class="p-button-danger ml-3" (click)="showForm=false">Hủy</button>
+    </ng-template>
+</p-dialog>
+
+

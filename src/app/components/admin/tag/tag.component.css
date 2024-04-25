@@ -1,0 +1,5 @@
+.p-button.p-button-info, .p-buttonset.p-button-info > .p-button, .p-splitbutton.p-button-info > .p-button {
+    color: #ffffff;
+    background: #9bb437;
+    border: 1px solid #ebecef;
+}

@@ -1,0 +1,74 @@
+<section class="user mt-5 mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 border-right" *ngIf="user != null">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="assets/image/author.jpg"><span class="font-weight-bold">{{user.username}}</span><span class="text-black-50">{{user.email}}</span><span>
+                </span></div>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Chỉnh Sửa Người Dùng</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">First Name</label>
+                            <input type="text" class="form-control" placeholder="Điền họ..." [(ngModel)]="updateForm.firstname" name="firstname">
+                        </div>
+                        <div class="col-md-6"><label class="labels">Last Name</label>
+                            <input type="text" class="form-control" placeholder="Điền tên..." [(ngModel)]="updateForm.lastname" name="lastname">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">SĐT</label>
+                            <input type="text" class="form-control" placeholder="+84..." [(ngModel)]="updateForm.phone" name="phone">
+                        </div>
+                        <div class="col-md-12"><label class="labels">Địa Chỉ</label>
+                            <input type="text" class="form-control" [(ngModel)]="updateForm.address" name="address">
+                        </div>
+                        <div class="col-md-12"><label class="labels">Email</label>
+                            <input type="text" class="form-control" placeholder="@gmail.com" [(ngModel)]="updateForm.email" name="email">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6"><label class="labels">Quốc Gia</label>
+                            <input type="text" class="form-control" [(ngModel)]="updateForm.country" name="country">
+                        </div>
+                        <div class="col-md-6"><label class="labels">Quận/Huyện</label>
+                            <input type="text" class="form-control" [(ngModel)]="updateForm.state" name="state">
+                        </div>
+                    </div>
+                    <div class="mt-5 text-center">
+                        <button class="btn btn-primary profile-button" type="button" (click)="updateProfile()">Lưu Người Dùng</button>
+                    </div>
+                </div>
+            </div>
+           <div class="col-md-4">
+                <div class="p-3 py-5">
+                    <div class="col-md-12">
+                        <button pButton pRipple type="button" label="Change Password" class="p-button-primary" (click)="showChangePassword()"></button>
+                        <p-dialog header="Danh mục" [(visible)]="changePassword" [style]="{width: '30vw'}" [modal]="true" [transitionOptions]="'.3s'">
+                            <form action="">
+                                <div class="p-field">
+                                    <label for="username">Old Password: </label>
+                                    <input type="text" pInputText class="w-full mt-2" [(ngModel)]="changePasswordForm.oldPassword" name="oldPassword">
+                                </div>
+                                <div class="p-field">
+                                    <label for="username">New Password: </label>
+                                    <input type="text" pInputText class="w-full mt-2" name="name"[(ngModel)]="changePasswordForm.newPassword">
+                                </div>
+                                <div class="p-field">
+                                    <label for="username">Repeat Password: </label>
+                                    <input type="text" pInputText class="w-full mt-2" name="name">
+                                </div>
+                                <div class="p-field mt-3">
+                                    <button type="submit" pButton (click)="changePasswordFunc()" >Save</button>
+                                    <button pButton type="button" class="p-button-danger ml-3" (click)="changePassword=false">Hủy</button>
+                                </div>
+                            </form>
+                        </p-dialog>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,40 @@
+/* Style the collapsed navigation links */
+.nav-item .nav-link.collapsed {
+    border-bottom: 1px solid #d4d5c3; /* Add a bottom border */
+}
+
+/* Style the active link */
+.nav-item .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.1); /* Change the background color of the active link */
+}
+/* Style the sidebar heading */
+.sidebar-heading {
+    font-size: 0.8rem;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+/* Style the submenu */
+.submenu {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.submenu li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #696666; /* Add a bottom border */
+}
+
+.submenu li a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.submenu li a fa-icon {
+    margin-right: 10px; /* Add margin to space out the icon */
+}
+

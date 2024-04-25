@@ -1,0 +1,169 @@
+
+<div id="wrapper">
+
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" routerLink="/admin">
+            <img src="assets/image/logo.png" alt="">
+        </a>
+        <hr class="sidebar-divider my-0">
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="/admin">
+                <fa-icon [icon]="tachometer"></fa-icon>
+                <span>Dashboard</span></a>
+        </li>
+        <hr class="sidebar-divider">
+
+        <div class="sidebar-heading" (click)="toggleSubMenuProduct()">
+            Quản Lý Sản Phẩm
+        </div>
+        <ul class="submenu" *ngIf="showSubMenuProduct">
+            <li><a routerLink="/moderator/pagesanpham"><fa-icon [icon]="receipt"></fa-icon><span>Sản Phẩm</span></a></li>
+            <li><a routerLink="/moderator/pagecolor"><fa-icon [icon]="receipt"></fa-icon><span>Màu</span></a></li>
+            <li><a routerLink="/moderator/pagesize"><fa-icon [icon]="receipt"></fa-icon><span>Size</span></a></li>
+            <li><a routerLink="/moderator/pageroom"><fa-icon [icon]="receipt"></fa-icon><span>Room</span></a></li>
+
+        </ul>
+        <!-- <hr class="sidebar-divider"> -->
+        
+        <!-- <div class="sidebar-heading" (click)="toggleSubMenuOrder()">
+            Quản Lý Đơn Hàng
+        </div>
+        <ul class="submenu" *ngIf="showSubMenuOrder">
+            <li><a routerLink="/admin/order"><fa-icon [icon]="cart"></fa-icon><span>Đơn Hàng</span></a></li>
+            <li><a routerLink="/admin/status-order"><fa-icon [icon]="cart"></fa-icon><span>Xử Lý Đơn Hàng</span></a></li>
+            <li><a routerLink="/admin/tag"><fa-icon [icon]="tag"></fa-icon><span>Tag</span></a></li>
+            <li><a routerLink="/admin/blog"><fa-icon [icon]="rocket"></fa-icon><span>Blog</span></a></li>
+        </ul> -->
+        <hr class="sidebar-divider">
+        <div class="sidebar-heading" (click)="toggleSubUser()">
+            Quản Lý Bài Viết
+        </div>
+        <ul class="submenu" *ngIf="showSubMenuUser">
+            <li><a routerLink="/moderator/pagebaiviet"><fa-icon [icon]="userIcon"></fa-icon><span>Bài Viết</span></a></li>
+            
+        </ul>
+        
+
+
+        <hr class="sidebar-divider d-none d-md-block">
+
+    </ul>    
+    
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <div id="content">
+
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                  <fa-icon [icon]="bars"></fa-icon>
+              </button>
+
+                <!-- Topbar Search -->
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                              <fa-icon [icon]="search"></fa-icon>
+                          </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+
+                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                    <li class="nav-item dropdown no-arrow d-sm-none">
+                        <a class="nav-link dropdown-toggle" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <fa-icon [icon]="search"></fa-icon>
+                        </a>
+                        <!-- Dropdown - Messages -->
+                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                            <form class="form-inline mr-auto w-100 navbar-search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button">
+                                          <i class="fas fa-search fa-sm"></i>
+                                      </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+
+                    <!-- Nav Item - Alerts -->
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <fa-icon [icon]="bell"></fa-icon>
+                            <!-- Counter - Alerts -->
+                            <span class="badge badge-danger badge-counter">3+</span>
+                        </a>
+                    </li>
+
+                    <!-- Nav Item - Messages -->
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <fa-icon [icon]="evelope"></fa-icon>
+                            <!-- Counter - Messages -->
+                            <span class="badge badge-danger badge-counter">7</span>
+                        </a>
+                    </li>
+
+                    <div class="topbar-divider d-none d-sm-block"></div>
+
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow" ngbDropdown>
+                        <a class="nav-link dropdown-toggle" role="button" ngbDropdownToggle *ngIf="user != null">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><b  style="    margin-right: 10px;
+                              color: dodgerblue;">Xin chào : {{user.username}}</b></span>
+                            <img class="img-profile rounded-circle" src="assets/image/author.jpg">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" ngbDropdownMenu>
+                            <a class="dropdown-item" ngbDropdownItem routerLink="/admin/thongtin">
+                                <fa-icon [icon]="userIcon"></fa-icon>
+                                Người Dùng
+                            </a>
+                            <a class="dropdown-item" ngbDropdownItem>
+                                <fa-icon [icon]="gear"></fa-icon>
+                                Cài đặt
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" ngbDropdownItem (click)="logout()">
+                                <fa-icon [icon]="logoutIcon"></fa-icon>
+                                Đăng Xuất
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <!-- //
+              thêm giao diện // -->
+
+            <!-- kết thúc giao diện -->
+            <!-- Begin Page Content -->
+
+            <!-- /.container-fluid -->
+            <div class="container-fluid">
+                
+<div class="card">
+    
+    <p-tabMenu *ngIf="items && activeItem" [model]="items" [activeItem]="activeItem" (activeItemChange)="onActiveItemChange($event)"></p-tabMenu>
+</div><br>
+                <router-outlet></router-outlet>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

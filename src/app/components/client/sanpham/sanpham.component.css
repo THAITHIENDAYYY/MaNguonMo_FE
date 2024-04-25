@@ -1,0 +1,26 @@
+
+/* Style product item */
+.product-item {
+    text-align: center;
+    padding: 10px;
+    
+    border-radius: 5px;
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+}
+
+.product-detail {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.featured__item {
+    margin: 20px;
+    border: 1px solid #dee2e6; /* Màu và độ dày viền có thể điều chỉnh */
+    margin-bottom: 20px; /* Khoảng cách giữa các sản phẩm */
+    padding: 15px; /* Khoảng cách nội dung bên trong sản phẩm */
+}
+

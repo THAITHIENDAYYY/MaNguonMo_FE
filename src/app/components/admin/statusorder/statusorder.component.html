@@ -1,0 +1,109 @@
+<div class="card">
+    <p-table #dt [value]="listOrder" [rows]="10" [paginator]="true" [globalFilterFields]="['firstname','lastname','address']" [tableStyle]="{'min-width': '75rem'}" [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [showCurrentPageReport]="true">
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                <h5 class="m-0">Quản lý đơn hàng</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Tìm kiếm" />`
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 4rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th pSortableColumn="name">Họ Tên
+                    <p-sortIcon field="name"></p-sortIcon>
+                </th>
+                
+                <th pSortableColumn="address">Địa Chỉ
+                    <p-sortIcon field="address"></p-sortIcon>
+                </th>
+                <!-- <th pSortableColumn="town">Town/City <p-sortIcon field="town"></p-sortIcon></th>
+                <th pSortableColumn="state">Country/State<p-sortIcon field="state"></p-sortIcon></th> -->
+                <!-- <th pSortableColumn="postcode">Postcode/Zip <p-sortIcon field="postcode"></p-sortIcon></th> -->
+              
+                <th pSortableColumn="price">Tổng Giá
+                    <p-sortIcon field="price"></p-sortIcon>
+                </th>
+                <th pSortableColumn="orderstatus" style="min-width:10rem">Trạng Thái
+                    <p-sortIcon field="orderstatus"></p-sortIcon>
+                </th>
+                
+                <th style="min-width:10rem">Thông Tin</th>
+               
+                
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-order>
+            <tr>
+                <td style="width: 4rem">
+                    <p-tableCheckbox [value]="order"></p-tableCheckbox>
+                </td>
+                <td>{{order.firstname}} {{order.lastname}}</td>
+                
+                <td>{{order.address}}</td>
+                
+                <td>{{order.totalPrice | currency:'VND'}}</td>
+                <!-- <td><button pButton type="button" label={{order.status}} class="p-button-success"></button></td> -->
+                <td>
+                    <button pButton type="button" label="{{order.orderstatus.name}}" [ngClass]="{
+                        'waiting-confirm': order.orderstatus.name === 'Chờ Xác Nhận',
+                        'waiting-pickup': order.orderstatus.name === 'Chờ Lấy Hàng',
+                        'waiting-delivery': order.orderstatus.name === 'Chờ Giao Hàng',
+                        'delivered': order.orderstatus.name === 'Đã Giao',
+                        'cancelled': order.orderstatus.name === 'Đã Hủy',
+                        'returned': order.orderstatus.name === 'Trả Hàng',
+                        'system-error': order.orderstatus.name === 'Lỗi Hệ Thống'
+                    }"></button>
+                </td>
+                
+                
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-primary mr-2" (click)="openUpdate(order)"></button>
+                </td>
+                  
+                
+                
+                
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+
+<p-dialog [(visible)]="showForm" [style]="{width: '70vw'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <!-- <img [src]="'assets/showcase/images/demo/product/' + product.image" [alt]="product.image" class="product-image" *ngIf="product.image"> -->
+        <div class="field">
+            <label for="email">ID</label>
+            <input type="text" pInputText id="email" [(ngModel)]="productForm.id" required autofocus />
+            <!-- <small class="p-error" *ngIf="submitted && !product.name">Name is required.</small> -->
+        </div>
+        <div class="field">
+            <label class="mb-3">Trạng Thái</label>
+            <div class="formgrid grid">
+                <div class="field-radiobutton col-6" *ngFor="let orderstatus of liststatus">
+                    <p-radioButton name="orderstatus" value="{{orderstatus.id}}" [(ngModel)]="productForm.status" [inputId]="orderstatus.id" class="mr-2"></p-radioButton>
+                    <label [for]="orderstatus.id">{{orderstatus.name}}</label>
+                </div>
+            </div>
+        </div>
+        
+
+        
+
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button type="submit" pButton *ngIf="onUpdate" (click)="updateProduct()">Cập nhật</button>
+        <button pButton type="button" class="p-button-danger ml-3" (click)="showForm=false">Hủy</button>
+    </ng-template>
+</p-dialog>
+
+
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

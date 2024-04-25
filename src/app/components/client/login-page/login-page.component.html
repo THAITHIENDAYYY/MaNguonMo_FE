@@ -1,0 +1,36 @@
+<p-toast>
+</p-toast>
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+        <form action="#">
+            <h1>Tạo Tài Khoản</h1>
+            <input type="text" placeholder="Username" [(ngModel)]="registerForm.username" name="username" />
+            <input type="email" placeholder="Email" [(ngModel)]="registerForm.email" name="email" />
+            <input type="password" placeholder="Password" [(ngModel)]="registerForm.password" name="password" />
+            <button (click)="register()">Đăng Ký</button>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form action="#">
+            <h1>Đăng Nhập</h1>
+            <input type="text" placeholder="Tên Tài Khoản" [(ngModel)]="loginForm.username" name="username" />
+            <input type="password" placeholder="Mật Khẩu" [(ngModel)]="loginForm.password" name="password" />
+            <a href="javascript:void(0)">Quên mật khẩu ?</a>
+            <button (click)="login()">Login</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>Hãy đăng nhập để trải nghiệm !</p>
+                <button class="ghost" id="signIn" (click)="loginFormChange()">Đăng Nhập</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Đăng Ký Ngay</h1>
+                <p>Giao Diện Thân Tiện Khó Sài</p>
+                <button class="ghost" id="signUp" (click)="registerFormChange()">Đăng Ký</button>
+            </div>
+        </div>
+    </div>
+</div>

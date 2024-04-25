@@ -1,0 +1,204 @@
+<p-toast></p-toast>
+
+<section class="breadcrumb-section set-bg" [ngStyle]="{backgroundImage:'url(assets/image/breadcrumb.jpg'}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Checkout</h2>
+                    <div class="breadcrumb__option">
+                        <a routerLink="/">Trang Chủ</a>
+                        <span>Checkout</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="product-details spad" *ngIf="product != null">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="product__details__pic">
+                    <div class="product__details__pic__item">
+                        <img class="product__details__pic__item--large" src="{{'data:image/jpg;base64,' + product.images[0].data}}" alt="{{product.name}}">
+                    </div>
+                    <div class="product__details__pic__slider">
+                        <img src="{{'data:image/jpg;base64,' + image.data}}" alt="" *ngFor="let image of product.images" class="col-3">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="product__details__text">
+                    <h3>{{product.name}}</h3>
+                    <div class="product__details__rating">
+                        <fa-icon [icon]="star"></fa-icon>
+                        <fa-icon [icon]="star"></fa-icon>
+                        <fa-icon [icon]="star"></fa-icon>
+                        <fa-icon [icon]="star"></fa-icon>
+                        <fa-icon [icon]="star_half"></fa-icon>
+                        <span>(18 reviews)</span>
+                    </div>
+                    <div class="product__details__price">{{ product.price | currency:'VND'}}</div>
+                    <!-- <p>{{product.description}}</p> -->
+                    <ul>
+                        <!-- màu -->
+                        <li *ngIf="product.category.id === 1 || product.category.id === 2 || product.category.id === 3 || product.category.id === 5 || product.category.id === 7 ||    product.category.id === 9 || product.category.id === 11 || product.category.id === 12 || product.category.id === 13 || product.category.id === 14|| product.category.id === 16 || product.category.id === 20  " >
+                            <b>COLOR:</b>  
+                            <div class="sidebar__item__size" >
+                                <label 
+                                    style="margin: 5px;" 
+                                    for="large"  
+                                    *ngFor="let color of product.productcolors" 
+                                    (click)="changeColor(color.name)"  [ngClass]="{'selected': selectedColor === color.name}">
+                                    {{color.name}}   
+                                </label>                        
+                            </div>
+                        </li>
+                        <!-- size -->
+
+                        <li *ngIf="product.category.id === 1 || product.category.id === 2 ||product.category.id === 13 || product.category.id === 12 ||product.category.id === 21 || product.category.id === 4 " >
+                            <b>SIZE:</b>  
+                            <div class="sidebar__item__size" >
+                                <label 
+                                    style="margin: 5px;" 
+                                    for="large"  
+                                    *ngFor="let size of product.productsizes" 
+                                    (click)="changeSize(size.name)"  [ngClass]="{'selected': selectedSize === size.name}">
+                                    {{size.name}}   
+                                </label>                        
+                            </div>
+                        </li>
+                        <!-- room -->
+                        <li *ngIf="product.category.id === 3 || product.category.id === 5 || product.category.id === 7" >
+                            <b>ROOM:</b>  
+                            <div class="sidebar__item__size" >
+                                <label 
+                                    style="margin: 5px;" 
+                                    for="large"  
+                                    *ngFor="let room of product.productrooms" 
+                                    (click)="changeRoom(room.name)"  [ngClass]="{'selected': selectedRoom === room.name}">
+                                    {{room.name}}   
+                                </label>                        
+                            </div>
+                        </li>
+                        <!-- <li *ngIf="product.category.id === 1 || product.category.id === 2"><b>Size:</b>  
+                            <div class="sidebar__item__size"  >
+                                <label style="margin: 5px;" for="large" *ngFor="let size of product.productsizes">
+                                    {{size.name}}   
+                                    <input type="radio" id="large">
+                                </label>                        
+                            </div>
+                        </li> -->
+                        <!-- <li *ngIf="product.category.id === 3 || product.category.id === 5|| product.category.id === 7"><b>Room:</b>  
+                            <div class="sidebar__item__size" >
+                                <label style="margin: 5px;" for="large" *ngFor="let room of product.productrooms">
+                                    {{room.name}}   
+                                    <input type="radio" id="large">
+                                </label>                        
+                            </div>
+                        </li> -->
+                    </ul>
+                    <div class="product__details__quantity">
+                        <div class="quantity">
+                            <div class="pro-qty">
+                                <span class="dec qtybtn" (click)="subtractQuantity()">-</span>
+                                <input type="text" [(ngModel)]="quantity" (input)="validateQuantity()" [max]="product.quantity" [min]="1">
+                                <span class="inc qtybtn" (click)="plusQuantity()">+</span>
+                                
+
+                            </div>
+                        </div>
+                    </div>
+                    <a>Số lượng : <b>{{product.quantity}}</b> sản phẩm có sẵn</a><br>  <br>
+                    <a href="javascript:void(0)" class="primary-btn" (click)="addCart(product)">Thêm vào giỏ hàng</a>
+                        
+                       
+                       
+                    
+                </div>
+            </div>
+            
+            <div class="col-lg-12">
+                <p-tabView>
+                    <p-tabPanel header="Giới Thiệu">
+                        <div class="tab-pane">
+                            <div class="product__details__tab__desc">
+                                <h6 [innerHTML]="product.description"></h6>
+                                
+                            </div>
+                        </div>
+                    </p-tabPanel>
+                    <p-tabPanel header="Mô tả">                        
+                        <div class="tab-pane">
+                            <div class="product__details__tab__desc">
+                                <h6 [innerHTML]="product.mota"></h6>
+                            </div>
+                        </div>
+                        
+
+                    </p-tabPanel>
+                    <p-tabPanel header="Đánh Giá (1)">
+
+                        <div class="tab-pane">
+                            <div class="product__details__tab__desc">
+                                <h6>Đang update</h6>
+                                
+                            </div>
+                        </div>
+
+                    </p-tabPanel>
+                </p-tabView>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="related-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title related__product__title">
+                    <h2>Sản Phẩm Liên Quan</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of listRelatedProduct">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" [ngStyle]="{'background-image': 'url(data:image/jpeg;base64,'+ product.images[0].data+')'}">
+                        <ul class="featured__item__pic__hover">
+                            <li>
+                                <a href="javascript:void(0)" (click)="addToWishList(product)">
+                                    <fa-icon [icon]="heart"></fa-icon>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" routerLink="/product/{{product.id}}">
+                                    <fa-icon [icon]="eye"></fa-icon>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" (click)="addToCart(product)">
+                                    <fa-icon [icon]="bag"></fa-icon>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="featured__item__text">
+                        <h6><b><a href="javascript:void(0)">{{ product.name.length > 25 ? product.name.slice(0, 25) + '...' : product.name }}</a></b></h6>
+                        <div style="display: inline-block;">
+                            <h5 class="red-text" style="display: inline-block; margin-right: 10px;">{{ product.price | currency:'VND'}}</h5> 
+                            <p style="display: inline-block;">Đã bán {{ product.quantitybuy }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

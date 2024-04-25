@@ -1,0 +1,10 @@
+.active {
+    /* CSS cho trạng thái đã kích hoạt */
+    color: green; /* Ví dụ: màu chữ xanh cho trạng thái đã kích hoạt */
+  }
+  
+  .inactive {
+    /* CSS cho trạng thái chưa kích hoạt */
+    color: red; /* Ví dụ: màu chữ đỏ cho trạng thái chưa kích hoạt */
+  }
+  

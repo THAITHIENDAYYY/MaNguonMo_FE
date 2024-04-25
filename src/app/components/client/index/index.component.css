@@ -1,0 +1,82 @@
+.cart-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #dee2e6;
+}
+.listItemInCart .cart-box:last-child{
+    border: none;
+    padding: 0;
+}
+
+.listItemInCart .cart-box a{
+    color: #64748B;
+}
+
+.cart-box-text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+}
+
+.cart-box-image{
+    box-shadow: 0 1px 10px #a5a5a51f,0 4px 5px #a5a5a51f,0 2px 4px -1px #a5a5a51f!important;
+}
+
+/* .dropdown-item{
+    padding: 4px 0;
+} */
+
+/* CSS cho danh sách các danh mục */
+/* CSS cho từng dòng (mỗi mục) trong danh sách */
+
+  
+  /* CSS cho ô danh mục khi di chuột vào */
+  /* CSS cho từng thẻ <li> trong danh sách */
+/* CSS cho từng thẻ <li> trong danh sách danh mục */
+.hero__categories ul li {
+    padding: 0px;
+  }
+  
+  /* CSS cho mỗi thẻ <li> trong danh sách danh mục khi di chuột vào */
+  .hero__categories ul li:hover {
+    background-color: #4a90e2
+
+    ; /* Màu nền khi di chuột vào */
+  }
+  
+  
+  
+  
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Màu nền cho thanh menu */
+    z-index: 1000; /* Đảm bảo thanh menu hiển thị trên tất cả các phần khác */
+  }
+  
+  /* Thêm các quy tắc CSS khác tùy thuộc vào yêu cầu thiết kế của bạn */
+ 
+  
+  
+
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

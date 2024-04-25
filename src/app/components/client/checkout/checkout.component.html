@@ -1,0 +1,127 @@
+<p-toast></p-toast>
+
+
+
+<section class="breadcrumb-section set-bg" [ngStyle]="{backgroundImage:'url(assets/image/breadcrumb.jpg'}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Thanh Toán</h2>
+                    <div class="breadcrumb__option">
+                        <a routerLink="/">Home</a>
+                        <span>Thanh Toán</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="checkout spad">
+    <div class="container">
+        <div class="checkout__form">
+            <h4>Chi Tiết Thanh Toán</h4>
+            <form action="#">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Họ<span>*</span></p>
+                                    <input type="text" [(ngModel)]="orderForm.firstname" name="firstname">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Tên<span>*</span></p>
+                                    <input type="text" [(ngModel)]="orderForm.lastname" name="lastname">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Quốc gia<span>*</span></p>
+                            <input type="text" [(ngModel)]="orderForm.country" name="country">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Địa Chỉ Nhận Hàng<span>*</span></p>
+                            <input type="text" placeholder="Street Address" [(ngModel)]="orderForm.address" name="address">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Thành Phố<span>*</span></p>
+                            <input type="text" [(ngModel)]="orderForm.town" name="town">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Quận/Huyện<span>*</span></p>
+                            <input type="text" [(ngModel)]="orderForm.state" name="state">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Postcode / ZIP<span>*</span></p>
+                            <input type="text" [(ngModel)]="orderForm.postCode" name="postCode">
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Phone<span>*</span></p>
+                                    <input type="text" [(ngModel)]="orderForm.phone" name="phone">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Email<span>*</span></p>
+                                    <input type="text" [(ngModel)]="orderForm.email" name="email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkout__input__checkbox">
+                            <label for="diff-acc">
+                                SHIP tới địa chỉ khác ?
+                                <input type="checkbox" id="diff-acc">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Ghi Chú<span>*</span></p>
+                            <input type="text" placeholder="Notes about your order, e.g. special notes for delivery." [(ngModel)]="orderForm.note" name="note">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="checkout__order">
+                            <h4>Đơn Hàng Của Bạn </h4>
+                            <div class="checkout__order__products">Sản Phẩm <span>Giá</span></div>
+                            <ul>
+                                <li *ngFor="let item of cartService.items">{{item.name.length > 6 ? item.name.slice(0, 10) + '...' : item.name}} <span>{{item.subTotal | currency:'VND'}}</span></li>
+                                </ul>
+                            <div class="checkout__order__subtotal">Tổng<span>{{cartService.totalPrice | currency:'VND'}}</span></div>                            
+                             <div class="checkout__order__total" *ngIf="voucher?.money">Sale <span>- {{ (voucher?.money | currency:'VND') }}</span></div>                    
+                              <div class="checkout__order__total"  *ngIf="!voucher?.money">Sale <span>0</span></div>                        
+                           <div class="checkout__order__total">Thành Tiền <span>{{totalFinal | currency:'VND' }}</span></div>
+                            <p>Vui lòng điền đúng địa chỉ để nhận hàng ! Lựa chọn phương thức thanh toán để thanh toán .</p>
+                            
+                            <div class="checkout__input__checkbox">
+                                <label for="payment">
+                                    Thanh Toán Khi Nhận Hàng
+                                    <input type="checkbox" id="payment" (change)="updateBank($event)">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="checkout__input__checkbox">
+                                <label for="vnpay">
+                                    Thanh Toán VNPay
+                                    <input type="checkbox" id="vnpay" (change)="updateBank($event)">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            
+                            
+                            <!-- <button type="submit" class="site-btn" (click)="placeOrder()">Xác Nhận Mua Hàng</button> -->
+                            <button type="submit" class="site-btn" *ngIf="isPaymentSelected || isVNPaySelected" (click)="placeOrder()">Xác Nhận Mua Hàng</button>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

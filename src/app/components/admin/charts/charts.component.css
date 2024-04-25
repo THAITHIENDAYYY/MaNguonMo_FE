@@ -1,0 +1,15 @@
+.col-auto{
+    font-size: 3em;
+}
+
+
+.card1 {
+    margin: 20px;
+    /* Thiết lập các thuộc tính CSS cho lớp card */
+    background-color: #ffffff; /* Màu nền */
+    border: 1px solid #e3e3e3; /* Viền */
+    border-radius: 8px; /* Bo tròn viền */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+    padding: 50px; /* Khoảng cách nội dung */
+  }
+  

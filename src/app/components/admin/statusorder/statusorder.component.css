@@ -1,0 +1,41 @@
+/* CSS để áp dụng cho trạng thái "Chờ Xác Nhận" */
+.waiting-confirm {
+    background-color: rgb(234, 234, 141); /* Màu nền */
+    color: black; /* Màu chữ */
+}
+
+/* CSS để áp dụng cho trạng thái "Chờ Lấy Hàng" */
+.waiting-pickup {
+    background-color: rgb(235, 190, 108);
+    color: white;
+}
+
+/* CSS để áp dụng cho trạng thái "Chờ Giao Hàng" */
+.waiting-delivery {
+    background-color: rgb(71, 71, 230);
+    color: white;
+}
+
+/* CSS để áp dụng cho trạng thái "Đã Giao" */
+.delivered {
+    background-color: rgb(30, 194, 30);
+    color: white;
+}
+
+/* CSS để áp dụng cho trạng thái "Đã Hủy" */
+.cancelled {
+    background-color: rgb(230, 62, 62);
+    color: white;
+}
+
+/* CSS để áp dụng cho trạng thái "Trả Hàng" */
+.returned {
+    background-color: rgb(193, 63, 193);
+    color: white;
+}
+
+/* CSS để áp dụng cho trạng thái "Lỗi Hệ Thống" */
+.system-error {
+    background-color: rgb(244, 237, 29);
+    color: white;
+}

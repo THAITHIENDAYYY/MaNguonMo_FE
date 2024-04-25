@@ -1,0 +1,68 @@
+.custom-link {
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none; /* Bỏ gạch chân dưới văn bản */
+    transition: color 0.3s ease;
+  }
+  
+  .custom-link:hover {
+    color: darkred;
+  }
+  .processing {
+    background-color: rgb(93, 93, 91); /* Màu sắc cho trạng thái đang xử lý */
+}
+
+.pending {
+    background-color: orange; /* Màu sắc cho trạng thái đang chờ lấy hàng */
+}
+
+.delivering {
+    background-color: blue; /* Màu sắc cho trạng thái đang giao */
+}
+
+.successful {
+    background-color: green; /* Màu sắc cho trạng thái giao hàng thành công */
+}
+
+/* CSS để áp dụng cho trạng thái "Chờ Xác Nhận" */
+.waiting-confirm {
+  background-color: yellow; /* Màu nền */
+  color: black; /* Màu chữ */
+}
+
+/* CSS để áp dụng cho trạng thái "Chờ Lấy Hàng" */
+.waiting-pickup {
+  background-color: orange;
+  color: white;
+}
+
+/* CSS để áp dụng cho trạng thái "Chờ Giao Hàng" */
+.waiting-delivery {
+  background-color: blue;
+  color: white;
+}
+
+/* CSS để áp dụng cho trạng thái "Đã Giao" */
+.delivered {
+  background-color: green;
+  color: white;
+}
+
+/* CSS để áp dụng cho trạng thái "Đã Hủy" */
+.cancelled {
+  background-color: red;
+  color: white;
+}
+
+/* CSS để áp dụng cho trạng thái "Trả Hàng" */
+.returned {
+  background-color: purple;
+  color: white;
+}
+
+/* CSS để áp dụng cho trạng thái "Lỗi Hệ Thống" */
+.system-error {
+  background-color: rgb(244, 237, 29);
+  color: white;
+}
