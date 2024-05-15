@@ -17,7 +17,7 @@ Gọi API từ Angular: Sử dụng HttpClientModule trong Angular để gọi A
 <p>4. Chạy và kiểm tra
 Chạy backend: Chạy ứng dụng Spring Boot từ Eclipse hoặc bằng lệnh Maven.
 Chạy frontend: Chạy ứng dụng Angular bằng lệnh ng serve.</p>
-
+<p>Cách cài đặt </p>
 <p> Bước 1: Để import SQL vào <b>Xampp</b>, ta khởi động <b>XamPP</b>, start <b>MySQL</b>, để import SQl chọn <b>Admin</b>, tạo thư mục mới chọn <b>New</b>, chọn <b>Import </b> trên thanh công cụ, tải file lên tại <b>Choose File</b>,  chọn <b>Import</b></p>
 
 <p> Bước 2: khởi động <b>XamPP</b>, start <b>Apache</b></p>
