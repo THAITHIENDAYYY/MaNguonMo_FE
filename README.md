@@ -1,4 +1,4 @@
-<p>Phần mềm sử dụng <b>Java Spring</b> với <b>Maven</b>, <b>Angular</b> và<b>PrimeNG</b> , <b>FE : angular </b> với <b> ngprime </b>.</p>
+<p>Phần mềm sử dụng <b>BE: Java Spring</b> với <b>Maven</b>, <b>Angular</b>  , <b>FE : angular </b> và<b>PrimeNG</b>.</p>
 <p>Phân mềm chạy chương trình <b>Visual Studio Code </b>, <b> XamPP </b></p>
 <p>Trong <b>Visual Studio Installer</b></p>
 <p> Bước 1: Để import SQL vào <b>Xampp</b>, ta khởi động <b>XamPP</b>, start <b>MySQL</b>, để import SQl chọn <b>Admin</b>, tạo thư mục mới chọn <b>New</b>, chọn <b>Import </b> trên thanh công cụ, tải file lên tại <b>Choose File</b>,  chọn <b>Import</b></p>
