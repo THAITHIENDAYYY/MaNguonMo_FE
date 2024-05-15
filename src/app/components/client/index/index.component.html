@@ -1,6 +1,6 @@
 <p-toast>
 </p-toast>
-
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 <p-dialog [(visible)]="authModal" [style]="{width: '30vw'}" [baseZIndex]="10000" [modal]="true" [dismissableMask]="true">
     <p-tabView>
         <p-tabPanel header="Đăng nhập">
@@ -59,8 +59,8 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="header__top__left">
                         <ul>
-                            <li routerLink="/admin/charts">Kênh người bán</li>
-                            <li><i class="fa fa-envelope"></i> thanhtrung3802@gmail.com</li>
+                            <li routerLink="/admin/product">Kênh người bán</li>
+                            <li><i class="fa fa-envelope"></i> </li>
                             
                             
                         </ul>
@@ -86,10 +86,10 @@
                                 <li><a href="javascript:void(0)" routerLink="/product">Sản Phẩm</a></li>
                                 <li><a href="javascript:void(0)" routerLink="/cart">Giỏ Hàng</a></li>
                                 <li><a href="javascript:void(0)">Check Out</a></li>
-                                <li><a href="javascript:void(0)">Blog Details</a></li>
+                              <!--  <li><a href="javascript:void(0)">Blog Details</a></li> -->
                             </ul>
                         </li>
-                        <li><a href="javascript:void(0)" routerLink="/blog">Tin Tức</a></li>
+                      <!--  <li><a href="javascript:void(0)" routerLink="/blog">Tin Tức</a></li> -->
                         <li><a href="javascript:void(0)" routerLink="/contact">Liên Hệ</a></li>
                     </ul>
                 </nav>
@@ -244,7 +244,7 @@
                             <fa-icon [icon]="phone"></fa-icon>
                         </div>
                         <div class="hero__search__phone__text">
-                            <h5>+84 38.2002.295</h5>
+                            <h5>+84 37.303.1324</h5>
                             <span>Support 24/7 </span>
                         </div>
                     </div>
@@ -270,9 +270,9 @@
                         <a href="javascript:void(0)"><img src="assets/image/logo.png" alt=""></a>
                     </div>
                     <ul>
-                        <li>Address: Trường SPKT HY</li>
-                        <li>Phone: +84 38.2002.295</li>
-                        <li>Email: thanhtrung3802@gmail.com</li>
+                        <li>Address: Nhà Bè. TP Hồ Chí Minh</li>
+                        <li>Phone: +84 37.603.1324</li>
+                        <li>Email: thangthie2@gmail.com</li>
                     </ul>
                 </div>
             </div>
@@ -293,40 +293,18 @@
                         <li><a href="javascript:void(0)">Góp ý</a></li>
                         <li><a href="javascript:void(0)">Liên hệ</a></li>
                     </ul>
+                  
                 </div>
             </div>
-            <div class="col-lg-4 col-md-12">
-                <div class="footer__widget">
-                    <h6>Tham gia ngay bây giờ</h6>
-                    <p>Nhận thông tin cập nhật e-mail về cửa hàng mới nhất của chúng tôi và các ưu đãi đặc biệt của chúng tôi.</p>
-                    <form action="#">
-                        <input type="text" placeholder="Mail ...">
-                        <button type="submit" class="site-btn" routerLink="/login">Đăng Ký</button>
-                    </form>
-                    <div class="footer__widget__social">
-                        <a href="javascript:void(0)">
-                            <fa-icon [icon]="fb"></fa-icon>
-                        </a>
-                        <a href="javascript:void(0)">
-                            <fa-icon [icon]="youtube"></fa-icon>
-                        </a><a href="javascript:void(0)">
-                            <fa-icon [icon]="tele"></fa-icon>
-                        </a><a href="javascript:void(0)">
-                            <fa-icon [icon]="ins"></fa-icon>
-                        </a>
-                    </div>
-                </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <!-- Chèn mã HTML của Chatbox vào cột này -->
+                <iframe
+                    allow="microphone;"
+                    width="550"
+                    height="330"
+                    src="https://console.dialogflow.com/api-client/demo/embedded/6cd14f49-88b3-4bec-b4e1-d9501b2c3309">
+                </iframe>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://www.facebook.com/trung3802" target="_blank">Thành Trung</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                        <div class="footer__copyright__payment"><img src="assets/image/payment-item.png" alt=""></div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+</div>
 </footer>
