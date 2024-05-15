@@ -1,5 +1,5 @@
 <p>Phần mềm sử dụng <b>BE: Java Spring</b> với <b>Maven</b>, <b>Angular</b>  , <b>FE: angular </b> và<b>PrimeNG</b>.</p>
-<p>Phân mềm chạy chương trình <b>Visual Studio Code </b>, <b> XamPP </b></p>
+<p>Phần mềm chạy chương trình <b>Visual Studio Code </b>, <b> XamPP </b></p>
 <p>1. Thiết lập Backend với Spring Boot và Maven
 Cài đặt môi trường: Java Development Kit (JDK), Eclipse IDE, Maven.
 Tạo dự án Spring Boot: Sử dụng Spring Initializr để tạo dự án với các dependency cần thiết như Spring Web, Spring Data JPA, H2 Database.
